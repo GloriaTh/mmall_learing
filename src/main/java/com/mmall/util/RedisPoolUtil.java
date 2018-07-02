@@ -1,6 +1,7 @@
 package com.mmall.util;
 
 import com.mmall.common.RedisPool;
+import com.mmall.pojo.User;
 import lombok.extern.slf4j.Slf4j;
 import redis.clients.jedis.Jedis;
 
@@ -95,6 +96,12 @@ public class RedisPoolUtil {
     }
 
     public static void main(String[] args) {
-        System.out.println(get("name"));
+        String userJsonStr = RedisPoolUtil.get("31B097DB6104D2366A96E3919EBBF0AE");
+        User user = JsonUtil.string2Obj(userJsonStr,User.class);
+
+        if(user != null){
+            System.out.println("meiyou");
+        }
+        System.out.println(JsonUtil.obj2String(user));
     }
 }
