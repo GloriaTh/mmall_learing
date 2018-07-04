@@ -19,7 +19,7 @@ public class RedisPool {
 
     private static String redisIp = PropertiesUtil.getProperty("redis.ip");
     private static Integer redisPort = Integer.parseInt(PropertiesUtil.getProperty("redis.port"));
-
+    private static String redisPassword = PropertiesUtil.getProperty("redis.password");
 
     private static void initPool(){
         JedisPoolConfig config = new JedisPoolConfig();
@@ -33,7 +33,7 @@ public class RedisPool {
 
         config.setBlockWhenExhausted(true);//连接耗尽的时候，是否阻塞，false会抛出异常，true阻塞直到超时。默认为true。
 
-        pool = new JedisPool(config,redisIp,redisPort,1000*2);
+        pool = new JedisPool(config,redisIp,redisPort,1000*2,redisPassword);
     }
 
     static{

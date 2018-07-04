@@ -96,12 +96,7 @@ public class RedisPoolUtil {
     }
 
     public static void main(String[] args) {
-        String userJsonStr = RedisPoolUtil.get("31B097DB6104D2366A96E3919EBBF0AE");
-        User user = JsonUtil.string2Obj(userJsonStr,User.class);
-
-        if(user != null){
-            System.out.println("meiyou");
-        }
-        System.out.println(JsonUtil.obj2String(user));
+        String userJsonStr = RedisPoolUtil.get("name");
+        System.out.println(userJsonStr);
     }
 }
